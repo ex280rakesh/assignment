@@ -23,7 +23,8 @@ RUN echo "PassEnv DB_SERVICE_SERVICE_HOST" >> /etc/httpd/conf/httpd.conf
 RUN chown root:apache /var/www/cgi-bin/action
 RUN chmod 755 /var/www/cgi-bin/action
 RUN echo "The Web Server is Running" > /var/www/html/index.html
-EXPOSE 80
+RUN printenv MY_POD_IP > /var/www/html/index.html
+EXPOSE 8080
 
 # Start the service
 CMD mkdir /run/httpd ; /usr/sbin/httpd -D FOREGROUND
