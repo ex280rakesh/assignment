@@ -19,4 +19,4 @@ EXPOSE 8080
 USER apache
 
 # Start the service
-CMD mkdir /run/httpd ; /usr/bin/printenv MY_POD_IP > /var/www/html/index.html ; /usr/sbin/httpd -D FOREGROUND
+CMD mkdir /run/httpd ; /usr/bin/printenv HOSTNAME MY_POD_IP > /var/www/html/index.html ; /usr/sbin/httpd -D FOREGROUND
